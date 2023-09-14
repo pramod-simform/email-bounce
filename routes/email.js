@@ -32,7 +32,7 @@ router.post("/", async function (req, res, next) {
    */
   if (userObj && userObj.emailBounceCounter < 3) {
     const info = await transporter.sendMail({
-      from: process.env.AWS_SES_FROM_ADDRESS, // Sender address
+      from: process.env.AWS_SES_FROM_ADDRESS, // Sender address, this could be SES verified identity
       to: email, // Receivers email address
       subject: "Test Subject", // Subject line
       text: "Hello world?", // Plain text body
